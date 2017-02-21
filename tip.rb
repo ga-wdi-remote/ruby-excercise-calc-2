@@ -1,0 +1,1 @@
+# Tip class inherits calculator
