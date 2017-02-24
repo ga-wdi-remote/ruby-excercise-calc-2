@@ -1,29 +1,53 @@
 require "./calculator"
 
 class Tip < Calculator
-  attr_accessor :tip, :total_tips
+  attr_accessor :total_tips, :tip_percentage
 
-  def initialize(tip)
-    @tip = tip
+  def initialize
     @total_tips
+    @tip_percentage
   end
 
   def tips
-    case @tip
+    puts 'in tips'
+    case @tip_percentage
     when 1
-      @tip = 15.0
+      @tip_percentage = 15.0
     when 2
-      @tip = 18.0
+      @tip_percentage = 18.0
     when 3
-      @tip = 20.0
+      @tip_percentage = 20.0
     when 4
       puts "Enter another tip percentage"
-      @tip = gets.chomp.to_f
+      @tip_percentage = gets.chomp.to_f.match(/^(?:100|[0-9]?[0-9])$/)
+    end
+  end
+
+  def get_tips
+    puts "How much tip would you like to leave?
+        1. 15%
+        2. 18%
+        3. 20%
+        4. Other"
+    result = true
+
+    while result do 
+      @tip_percentage = gets.chomp
+      # @tip_percentage = gets.chomp
+      # raise 'an issue has occured'
+      if @tip_percentage.match(/^[1-4]$/)
+        @tip_percentage = @tip_percentage.to_f
+        tips
+        result = false
+      else
+        puts "Invalid input!"
+      end
     end
   end
 
   def calculate_tips(subtotal)
-    @total_tips = subtotal * (@tip/100)
+    @total_tips = subtotal * (@tip_percentage/100)
+    puts "total tip is #{@total_tips}"
   end
 
 end

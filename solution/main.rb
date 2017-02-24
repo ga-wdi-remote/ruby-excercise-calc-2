@@ -7,13 +7,13 @@ calculator = Calculator.new
 calculator.subtotal
 
 calculator.people
-calculator.get_tips
 
-tip = Tip.new(calculator.tip_percentage)
-tip.tips
+tip = Tip.new
+tip.get_tips
+# tip.tips
 
-calculator.get_tax
-tax = Tax.new(calculator.tax_rate)
+tax = Tax.new
+tax.get_tax
 
 tax.calculate_tax(calculator.subtotal_amount)
 tip.calculate_tips(calculator.subtotal_amount)
