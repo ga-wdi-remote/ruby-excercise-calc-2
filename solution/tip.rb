@@ -19,7 +19,16 @@ class Tip < Calculator
       @tip_percentage = 20.0
     when 4
       puts "Enter another tip percentage"
-      @tip_percentage = gets.chomp.to_f.match(/^(?:100|[0-9]?[0-9])$/)
+      result = true
+      while result do
+        @tip_percentage = gets.chomp
+        if @tip_percentage.match(/^(?:100|[0-9]?[0-9])$/)
+          @tip_percentage = @tip_percentage.to_f
+          result = false
+        else
+          puts "Invalid, please put a number 0-100"
+        end
+      end
     end
   end
 

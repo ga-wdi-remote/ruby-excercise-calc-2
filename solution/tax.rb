@@ -2,7 +2,7 @@ require "./calculator"
 
 
 class Tax < Calculator
-  attr_accessor :tax, :total_tax, :tax_rate, 
+  attr_accessor :tax, :total_tax, :tax_rate, :tax_pp
 
   def initialize
     # Instance variables
@@ -30,4 +30,7 @@ class Tax < Calculator
     @total_tax = subtotal * (@tax_rate/100)
     puts "total tax is #{@total_tax}"
   end
+
+
+
 end

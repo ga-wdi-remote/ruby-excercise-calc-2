@@ -1,5 +1,5 @@
 class Calculator
-  attr_accessor :subtotal_amount, :people_amount,  :total, :pp
+  attr_accessor :subtotal_amount, :people_amount, :total, :pp
 
   def initialize
     @subtotal_amount

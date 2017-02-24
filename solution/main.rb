@@ -3,14 +3,11 @@ require "./tip"
 require "./calculator"
 
 calculator = Calculator.new
-
 calculator.subtotal
-
 calculator.people
 
 tip = Tip.new
 tip.get_tips
-# tip.tips
 
 tax = Tax.new
 tax.get_tax
